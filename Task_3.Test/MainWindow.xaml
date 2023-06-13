@@ -1,0 +1,61 @@
+﻿<Window x:Class="Task_3.Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_3.Test"
+        mc:Ignorable="d"
+        Title="Stopwatch.TEST" Height="450" Width="800">
+    <Grid>
+        <TextBlock 
+         Name ="Stopwatch"
+         Height="100"
+         Width="550"
+         FontSize="50"
+         HorizontalAlignment="Center"
+         VerticalAlignment="Center"
+         Foreground="Black"
+         Text="0 : 0 : 0"
+         TextAlignment="Center"
+        />
+        <Button
+         Name ="ButtonStart"
+         Height="50"
+         Width="150"
+         HorizontalAlignment="Center"
+         Margin="0, 185, 0, 0"
+         Background="GreenYellow"
+         BorderBrush="GreenYellow"
+         Content = "Start"
+         FontSize="30"
+         Foreground="DarkGreen"
+         Click ="button_Start_Click"
+        />
+        <Button
+         Name ="ButtonStop"
+         Height="50"
+         Width="150"
+         HorizontalAlignment="Center"
+         Margin="0, 185, 350, 0"
+         Background="Pink"
+         BorderBrush="RosyBrown"
+         Content = "Stop"
+         FontSize="30"
+         Foreground="Red"
+         Click ="button_Stop_Click"
+        />
+        <Button
+         Name ="ButtonReset"
+         Height="50"
+         Width="150"
+         HorizontalAlignment="Center"
+         Margin="350, 185, 0, 0"
+         Background="Lavender"
+         BorderBrush="Lavender"
+         Content = "Reset"
+         FontSize="30"
+         Foreground="BlueViolet"
+         Click ="button_Reset_Click"
+        />
+    </Grid>
+</Window>
