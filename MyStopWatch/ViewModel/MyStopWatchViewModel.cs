@@ -6,39 +6,69 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MyStopWatch.ViewModel
 {
-    public class MyStopWatchViewModel : IMyStopWatchViewModel
+    public class MyStopWatchViewModel : INotifyPropertyChanged
     {
-        public readonly List<MyStopWatchModel> stwModels;
-        private readonly MyStopWatchModel stW;
-        //public ViewModelLocator ViewLocator { get; set; }
+        private readonly MyStopWatchModel _stW;
+        private DispatcherTimer _timer;
+        private string _currentTime;
+        private int _seconds = 0;
+        private int _minutes = 0;
+        private int _hours = 0;
 
         public MyStopWatchViewModel()
         {
-            stwModels = new List<MyStopWatchModel>();
+            _stW = new MyStopWatchModel();
+            _timer = new DispatcherTimer();
+            _timer.Tick += new EventHandler(TimerTick);
+            _timer.Interval = new TimeSpan(0, 0, 1);
+            _timer.Start();
         }
 
-        public List<MyStopWatchModel> GetStopWatches()
+        public string CurrentTime
         {
-            return stwModels;
-        }
-        public void Add(MyStopWatchModel stopWatch)
-        {
-            stwModels.Add(stopWatch);
-        }
-
-        public void Remove(MyStopWatchModel stopWatch)
-        {
-            stwModels.Remove(stopWatch);
+            get { return _currentTime; }
+            set
+            {
+                _currentTime = value;
+                OnPropertyChanged(nameof(CurrentTime));
+            }
         }
 
-        public string TimeForStopWatch()
+        //private void Timer()
+        //{
+
+        //}
+
+        private void TimerTick(object? sender, EventArgs e)
         {
-            DateTime time = DateTime.Now;
-            stW.Time = $"{time.Hour}:{time.Minute}:{time.Second}";
-            return stW.Time;
+            _seconds++;
+            if (_seconds == 60)
+            {
+                _seconds = 0;
+                _minutes++;
+            }
+            if (_minutes == 60)
+            {
+                _seconds = 0;
+                _minutes = 0;
+                _hours++;
+            }
+
+            _stW.Time = string.Format("{0:d2} : {1:d2} : {2:d2}", _hours, _minutes, _seconds);
+            CurrentTime = _stW.Time;
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

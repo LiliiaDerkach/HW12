@@ -9,11 +9,12 @@
     <Grid>
         <TextBox
             Name ="StopWatch"
+            Width="300"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="50"
-            Text="00:00:00"
-            >
+            TextAlignment="Center"
+            Text = "{Binding CurrentTime}">
 
         </TextBox>
     </Grid>

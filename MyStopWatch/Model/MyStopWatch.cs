@@ -10,5 +10,6 @@ namespace MyStopWatch.Model
    public class MyStopWatchModel
     {
         public string Time { get; set; }
+
     }
 }

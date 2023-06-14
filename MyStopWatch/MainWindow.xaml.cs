@@ -21,12 +21,11 @@ namespace MyStopWatch
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ViewModelLocator modelLocator { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            modelLocator = new ViewModelLocator();
-            StopWatch.Text = modelLocator.viewModel.TimeForStopWatch();
+            ViewModelLocator vmLocator = new ViewModelLocator();
+            DataContext = vmLocator.viewModel;
         }
     }
 }
