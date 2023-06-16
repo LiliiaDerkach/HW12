@@ -15,7 +15,16 @@
             FontSize="50"
             TextAlignment="Center"
             Text = "{Binding CurrentTime}">
-
         </TextBox>
+        <Button
+            Name ="StartButton"
+            Content ="Start"
+            FontSize="30"
+            Height="40"
+            Width="100"
+            Margin=" 0, 150, 0 ,0"
+            VerticalAlignment="Center"
+            Command="{Binding StartStopWatch}"
+        />
     </Grid>
 </Window>
