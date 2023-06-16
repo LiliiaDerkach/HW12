@@ -13,7 +13,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MyStopWatch.ViewModel
 {
-    public class MyStopWatchViewModel : INotifyPropertyChanged
+    public class MyStopWatchViewModel : NotifyPropertyChanged
     {
         private readonly MyStopWatchModel _stW;
         private readonly DispatcherTimer _timer;
@@ -30,7 +30,6 @@ namespace MyStopWatch.ViewModel
             _timer = new DispatcherTimer();
             _timer.Tick += new EventHandler(TimerTick);
             _timer.Interval = new TimeSpan(0, 0, 1);
-            //_timer.Start();
         }
         public ICommand StartStopWatch
         {
@@ -43,6 +42,31 @@ namespace MyStopWatch.ViewModel
 
             }
         }
+
+        public ICommand StopStopWatch
+        {
+            get
+            {
+                return new ActionCommand(() =>
+                {
+                    _timer.Stop();
+                });
+            }
+        }
+
+        public ICommand ResetStopWatch
+        {
+            get
+            {
+                return new ActionCommand(() =>
+                {
+                    _seconds = 0;
+                    _minutes = 0;
+                    _hours = 0;
+                    CurrentTime = "00 : 00 : 00";
+                });
+            }
+        }
         public string CurrentTime
         {
             get { return _currentTime; }
@@ -52,11 +76,6 @@ namespace MyStopWatch.ViewModel
                 OnPropertyChanged(nameof(CurrentTime));
             }
         }
-
-        //private void Timer()
-        //{
-
-        //}
 
         private void TimerTick(object? sender, EventArgs e)
         {
@@ -77,13 +96,6 @@ namespace MyStopWatch.ViewModel
             CurrentTime = _stW.Time;
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
 
     }
 }

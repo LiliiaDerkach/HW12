@@ -26,5 +26,25 @@
             VerticalAlignment="Center"
             Command="{Binding StartStopWatch}"
         />
+        <Button
+            Name ="StopButton"
+            Content ="Stop"
+            FontSize="30"
+            Height="40"
+            Width="100"
+            Margin=" 0, 150, 300 ,0"
+            VerticalAlignment="Center"
+            Command="{Binding StopStopWatch}"
+        />
+        <Button
+            Name ="ResetButton"
+            Content ="Reset"
+            FontSize="30"
+            Height="40"
+            Width="100"
+            Margin=" 300, 150, 0 ,0"
+            VerticalAlignment="Center"
+            Command="{Binding ResetStopWatch}"
+        />
     </Grid>
 </Window>
