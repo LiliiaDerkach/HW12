@@ -22,8 +22,6 @@ namespace MyStopWatch.ViewModel
         private int _minutes = 0;
         private int _hours = 0;
 
-        public ActionCommand StartCommand { get; set; }
-
         public MyStopWatchViewModel()
         {
             _stW = new MyStopWatchModel();
