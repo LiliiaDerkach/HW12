@@ -25,5 +25,8 @@ namespace Task_4.Core
         {
             _action.Invoke();
         }
+
+        protected void OnCanExecuteChanged()
+    => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }

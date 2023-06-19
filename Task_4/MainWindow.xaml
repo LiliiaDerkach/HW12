@@ -44,7 +44,8 @@
             Grid.Column="0"
             Content="1"
             FontSize="50"
-            Name="ButtonOne"/>
+            Name="ButtonOne"
+            Command="{Binding ButtonClickCommand}"/>
         <Button
             Grid.Row="2"
             Grid.Column="1"
