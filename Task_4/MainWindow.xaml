@@ -23,14 +23,24 @@
         </Grid.ColumnDefinitions>
         <TextBlock
             Grid.Column="0"
-            Grid.ColumnSpan="4"
+            Grid.ColumnSpan="2"
             Grid.Row="0"
             Grid.RowSpan="2"
-            Name="CalculatorText"
+            Name="ExampleText"
             Text="{Binding Result}"
             TextAlignment="Center"
             FontSize="50"
             Background="Aqua"/>
+        <TextBlock
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Name="ResultText"
+            Text="{Binding Result}"
+            TextAlignment="Center"
+            FontSize="50"
+            Background="Azure"/>
         <Button
             Grid.Row="5"
             Grid.Column="1"
