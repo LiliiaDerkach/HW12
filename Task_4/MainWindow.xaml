@@ -38,33 +38,119 @@
             Name="TextButton"
             Content="Result"
             FontSize="50"
-            Command="{Binding ShowResult}"/>
+            Command="{Binding ShowResult}"
+            CommandParameter="Result"/>
         <Button
             Grid.Row="2"
             Grid.Column="0"
             Content="1"
             FontSize="50"
             Name="ButtonOne"
-            Command="{Binding ButtonClickCommand}"/>
+            Command="{Binding ShowResult}"
+            CommandParameter="1"/>
         <Button
             Grid.Row="2"
             Grid.Column="1"
             Content="2"
-            FontSize="50"/>
+            FontSize="50"
+            Name="ButtonTwo"
+            Command="{Binding ShowResult}"
+            CommandParameter="2"/>
         <Button
             Grid.Row="2"
             Grid.Column="2"
             Content="3"
-            FontSize="50"/>
+            FontSize="50"
+            Name="ButtonThree"
+            Command="{Binding ShowResult}"
+            CommandParameter="3"/>
         <Button
             Grid.Row="3"
             Grid.Column="0"
             Content="4"
-            FontSize="50"/>
+            FontSize="50"
+            Name="ButtonFour"
+            Command="{Binding ShowResult}"
+            CommandParameter="4"/>
         <Button
             Grid.Row="3"
             Grid.Column="1"
             Content="5"
-            FontSize="50"/>
+            FontSize="50"
+            Name="ButtonFive"
+            Command="{Binding ShowResult}"
+            CommandParameter="5"/>
+        <Button
+            Grid.Row="3"
+            Grid.Column="2"
+            Content="6"
+            FontSize="50"
+            Name="ButtonSix"
+            Command="{Binding ShowResult}"
+            CommandParameter="6"/>
+        <Button
+            Grid.Row="4"
+            Grid.Column="0"
+            Content="7"
+            FontSize="50"
+            Name="ButtonSeven"
+            Command="{Binding ShowResult}"
+            CommandParameter="7"/>
+        <Button
+            Grid.Row="4"
+            Grid.Column="1"
+            Content="8"
+            FontSize="50"
+            Name="ButtonEight"
+            Command="{Binding ShowResult}"
+            CommandParameter="8"/>
+        <Button
+            Grid.Row="4"
+            Grid.Column="2"
+            Content="9"
+            FontSize="50"
+            Name="ButtonNine"
+            Command="{Binding ShowResult}"
+            CommandParameter="9"/>
+        <Button
+            Grid.Row="5"
+            Grid.Column="0"
+            Content="0"
+            FontSize="50"
+            Name="ButtonZero"
+            Command="{Binding ShowResult}"
+            CommandParameter="0"/>
+        <Button
+            Grid.Row="2"
+            Grid.Column="3"
+            Content="+"
+            FontSize="50"
+            Name="ButtonPlus"
+            Command="{Binding ShowResult}"
+            CommandParameter="+"/>
+        <Button
+            Grid.Row="3"
+            Grid.Column="3"
+            Content="-"
+            FontSize="50"
+            Name="ButtonMinus"
+            Command="{Binding ShowResult}"
+            CommandParameter="-"/>
+        <Button
+            Grid.Row="4"
+            Grid.Column="3"
+            Content="*"
+            FontSize="50"
+            Name="ButtonMultiздн"
+            Command="{Binding ShowResult}"
+            CommandParameter="*"/>
+        <Button
+            Grid.Row="5"
+            Grid.Column="3"
+            Content="/"
+            FontSize="50"
+            Name="ButtonDivide"
+            Command="{Binding ShowResult}"
+            CommandParameter="/"/>
     </Grid>
 </Window>

@@ -7,11 +7,11 @@ using System.Windows.Input;
 
 namespace Task_4.Core
 {
-    public class ActionCommand : ICommand
+    public class RelayCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged;
-        private readonly Action _action;
-        public ActionCommand(Action action)
+        public readonly Action <object> _action;
+        public RelayCommand(Action<object> action)
         {
             _action = action;
         }
@@ -23,7 +23,7 @@ namespace Task_4.Core
 
         public void Execute(object? parameter)
         {
-            _action.Invoke();
+            _action.Invoke(parameter);
         }
 
         protected void OnCanExecuteChanged()

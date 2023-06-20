@@ -13,21 +13,15 @@ namespace Task_4.ViewModel
     {
         private Calculator _calculator;
         private string _result;
-        private string _number;
+        public List<string> numericalExample = new List<string>();
+        public ICommand ShowResult { get; set; }
+
         public CalculatorViewModel()
         {
             _calculator = new Calculator();
-        }
-        public ICommand ShowResult
-        {
-            get
-            {
-                return new ActionCommand(() =>
-                {
-                    Result = Addition();
-                }
-                );
-            }
+            ShowResult = new RelayCommand((parametr => Result = parametr.ToString()));
+            numericalExample.Add(Result);
+
         }
         public string Result
         {
@@ -38,26 +32,6 @@ namespace Task_4.ViewModel
                 OnPropertyChanged(nameof(Result));
             }
         }
-        //public ICommand ShowNumber
-        //{
-        //    get
-        //    {
-        //        return new ActionCommand(() =>
-        //        {
-        //            Number = "1";
-        //        }
-        //        );
-        //    }
-        //}
-        //public string Number
-        //{
-        //    get { return _number; }
-        //    set
-        //    {
-        //        _number = value;
-        //        OnPropertyChanged(nameof(Number));
-        //    }
-        //}
         public string Addition()
         {
             double a = 1;
