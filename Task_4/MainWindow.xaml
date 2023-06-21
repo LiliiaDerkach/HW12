@@ -27,7 +27,7 @@
             Grid.Row="0"
             Grid.RowSpan="2"
             Name="ExampleText"
-            Text="{Binding Result}"
+            Text="{Binding Example}"
             TextAlignment="Center"
             FontSize="50"
             Background="Aqua"/>
@@ -56,7 +56,7 @@
             Content="1"
             FontSize="50"
             Name="ButtonOne"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="1"/>
         <Button
             Grid.Row="2"
@@ -64,7 +64,7 @@
             Content="2"
             FontSize="50"
             Name="ButtonTwo"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="2"/>
         <Button
             Grid.Row="2"
@@ -72,7 +72,7 @@
             Content="3"
             FontSize="50"
             Name="ButtonThree"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="3"/>
         <Button
             Grid.Row="3"
@@ -80,7 +80,7 @@
             Content="4"
             FontSize="50"
             Name="ButtonFour"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="4"/>
         <Button
             Grid.Row="3"
@@ -88,7 +88,7 @@
             Content="5"
             FontSize="50"
             Name="ButtonFive"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="5"/>
         <Button
             Grid.Row="3"
@@ -96,7 +96,7 @@
             Content="6"
             FontSize="50"
             Name="ButtonSix"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="6"/>
         <Button
             Grid.Row="4"
@@ -104,7 +104,7 @@
             Content="7"
             FontSize="50"
             Name="ButtonSeven"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="7"/>
         <Button
             Grid.Row="4"
@@ -112,7 +112,7 @@
             Content="8"
             FontSize="50"
             Name="ButtonEight"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="8"/>
         <Button
             Grid.Row="4"
@@ -120,7 +120,7 @@
             Content="9"
             FontSize="50"
             Name="ButtonNine"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="9"/>
         <Button
             Grid.Row="5"
@@ -128,7 +128,7 @@
             Content="0"
             FontSize="50"
             Name="ButtonZero"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="0"/>
         <Button
             Grid.Row="2"
@@ -136,7 +136,7 @@
             Content="+"
             FontSize="50"
             Name="ButtonPlus"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="+"/>
         <Button
             Grid.Row="3"
@@ -144,7 +144,7 @@
             Content="-"
             FontSize="50"
             Name="ButtonMinus"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="-"/>
         <Button
             Grid.Row="4"
@@ -152,7 +152,7 @@
             Content="*"
             FontSize="50"
             Name="ButtonMultiздн"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="*"/>
         <Button
             Grid.Row="5"
@@ -160,7 +160,7 @@
             Content="/"
             FontSize="50"
             Name="ButtonDivide"
-            Command="{Binding ShowResult}"
+            Command="{Binding ShowExample}"
             CommandParameter="/"/>
     </Grid>
 </Window>
