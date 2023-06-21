@@ -30,7 +30,7 @@
             Text="{Binding Example}"
             TextAlignment="Center"
             FontSize="50"
-            Background="Aqua"/>
+            Background="Beige"/>
         <TextBlock
             Grid.Column="2"
             Grid.ColumnSpan="2"
@@ -40,16 +40,25 @@
             Text="{Binding Result}"
             TextAlignment="Center"
             FontSize="50"
-            Background="Azure"/>
+            Background="Bisque"/>
         <Button
             Grid.Row="5"
             Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Name="TextButton"
+            Name="ResultButton"
             Content="Result"
             FontSize="50"
             Command="{Binding ShowResult}"
-            CommandParameter="Result"/>
+            CommandParameter="Result"
+            Background="GreenYellow"/>
+        <Button
+            Grid.Row="5"
+            Grid.Column="2"
+            Name="ResetButton"
+            Content="Reset"
+            FontSize="50"
+            Command="{Binding ResetAll}"
+            CommandParameter="Result"
+            Background="RosyBrown"/>
         <Button
             Grid.Row="2"
             Grid.Column="0"
