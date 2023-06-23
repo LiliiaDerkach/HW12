@@ -10,83 +10,170 @@ using System.Windows.Media;
 
 namespace Task_4.ViewModel
 {
-    public class CalculatorViewModel : NotifyPropertyChanged
+    public class CalculatorViewModel : BaseViewModel
     {
         private Calculator _calculator;
-        private string _example;
+        private string _formula;
         private string _result;
         private string _reset;
-        public List<string> numericalExample = new List<string>();
-
-        private string _numberFromButton;
         private string _firstOperandStr;
         private string _secondOperandStr;
-        private string _signOfExample;
+        private string _signOfFormula;
 
-        private int _firstOperandNum;
-        private int _secondOperandNum;
+        private double _firstOperandNum;
+        private double _secondOperandNum;
+        private int _count;
 
-        public ICommand ShowExample { get; set; }
+        public List<string> AllPartsOfFormula = new List<string>();
+
+
+        public ICommand ShowFormula { get; set; }
         public ICommand ShowResult { get; set; }
         public ICommand ResetAll { get; set; }
 
         public CalculatorViewModel()
         {
             _calculator = new Calculator();
-            ShowExample = new RelayCommand((parametr => CreateNumericExample(parametr)));
+            ShowFormula = new RelayCommand(CreateFormula);
             ShowResult = new RelayCommand((parametr => CreateResult()));
-            ResetAll = new RelayCommand((paramr => Reset()));
+            ResetAll = new RelayCommand((parametr => Reset()));
+        }
+
+        public string ResetFormula
+        {
+            get { return _signOfFormula; }
+            set
+            {
+                _reset = value;
+                OnPropertyChanged(nameof(ResetFormula));
+            }
+        }
+
+        public string Formula
+        {
+            get { return _formula; }
+            set
+            {
+                _formula = value;
+                OnPropertyChanged(nameof(Formula));
+            }
+        }
+
+        public string Result
+        {
+            get { return _result; }
+            set
+            {
+                _result = value;
+                OnPropertyChanged(nameof(Result));
+            }
         }
 
         public void Reset()
         {
-            ResetExample = null;
-            Example = null;
+            ResetFormula = null;
+            Formula = null;
             Result = null;
-            numericalExample = new List<string>();
+            AllPartsOfFormula = new List<string>();
             _firstOperandStr = null;
             _secondOperandStr = null;
-            _signOfExample = null;
+            _signOfFormula = null;
             _firstOperandNum = 0;
             _secondOperandNum = 0;
         }
-        public void CreateNumericExample(object par)
-        {
-            _numberFromButton = par.ToString();
-            numericalExample.Add(_numberFromButton);
-            Example += _numberFromButton;
 
-        }
-        public void CreateNumbers()
+        public void CreateFormula(object par)
         {
-            for (int i = 0; i < numericalExample.Count; i++)
+            string _numberFromButton = par.ToString();
+            bool IsAddNewElement = true;
+            if (IsAddNewElement == true && _count == 0)
             {
-                bool isContinue = true;
-
-                if (_signOfExample != null)
-                {
-                    if (numericalExample[i] != "+" || numericalExample[i] != "-" || numericalExample[i] != "*" || numericalExample[i] != "/")
-                    { _secondOperandStr += numericalExample[i]; }
-                }
-                if (numericalExample[i] == "+" || numericalExample[i] == "-" || numericalExample[i] == "*" || numericalExample[i] == "/")
-                {
-                    _signOfExample = numericalExample[i];
-                }
-                while (isContinue == true && _signOfExample == null)
-                {
-                    if (numericalExample[i] != "+" || numericalExample[i] != "-" || numericalExample[i] != "*" || numericalExample[i] != "/")
-                    {
-                        _firstOperandStr += numericalExample[i];
-                        isContinue = false;
-                    }
-                }
-
+                _count++;
+                AllPartsOfFormula.Add(_numberFromButton);
+                IsAddNewElement = false;
             }
+            if (IsElementTrue(_numberFromButton))
+            {
+                //_firstOperandStr = ...
+                if (AllPartsOfFormula.Count > 0)
+                    _firstOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
+            }
+            if (IsSignTrue(_numberFromButton))
+            {
+                //_signOfFormula = ...
+                AllPartsOfFormula.Add(_numberFromButton);
+                _signOfFormula = _numberFromButton;
+                IsAddNewElement = true;
+            }
+            if (_signOfFormula != null && IsAddNewElement == true)
+            {
+                AllPartsOfFormula.Add(_numberFromButton);
+            }
+            if (IsElementTrue(_numberFromButton))
+            {
+                //_secondOperandStr = ...
+                if (AllPartsOfFormula.Count > 0)
+                    _secondOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
+            }
+
+
+            AllPartsOfFormula.Add(_numberFromButton);
+            Formula += _numberFromButton;
         }
+
+        public bool IsElementTrue(string element)
+        {
+            if (element != "+" || element != "-" || element != "*" || element != "/")
+                return true;
+            else return false;
+        }
+        public bool IsSignTrue(string sign)
+        {
+            if (sign == "+" || sign == "-" || sign == "*" || sign == "/")
+                return true;
+            else return false;
+        }
+
+        //public void CreatePartsOfFormula()
+        //{
+        //    for (int i = 0; i < AllPartsOfFormula.Count; i++)
+        //    {
+        //        bool isContinue = true;
+        //        string elementOfMass = AllPartsOfFormula[i];
+
+        //        if (_signOfFormula != null)
+        //        {
+        //            if (IsElementTrue(elementOfMass))
+        //            {
+        //                _secondOperandStr += AllPartsOfFormula[i];
+        //            }
+        //        }
+
+        //        if (IsSignTrue(elementOfMass))
+        //        {
+        //            _signOfFormula = AllPartsOfFormula[i];
+        //        }
+
+        //        while (isContinue == true && _signOfFormula == null)
+        //        {
+        //            if (IsElementTrue(elementOfMass))
+        //            {
+        //                _firstOperandStr += AllPartsOfFormula[i];
+        //                isContinue = false;
+        //            }
+        //        }
+                //if (_signOfFormula != null && IsSignTrue(elementOfMass))
+                //{
+                //   _firstOperandNum = _calculator.Result;
+                //   _secondOperandStr =
+                //}
+        //    }
+        //}
+
         public void CreateResult()
         {
-            CreateNumbers();
-            switch (_signOfExample)
+            //CreatePartsOfFormula();
+            switch (_signOfFormula)
             {
                 case "+":
                     Result = "=" + Addition();
@@ -103,60 +190,33 @@ namespace Task_4.ViewModel
             }
         }
 
-        public string ResetExample
+        public void OperansToDouble()
         {
-            get { return _signOfExample; }
-            set
-            {
-                _reset = value;
-                OnPropertyChanged(nameof(Reset));
-            }
+            _firstOperandNum = Convert.ToDouble(_firstOperandStr);
+            _secondOperandNum = Convert.ToDouble(_secondOperandStr);
         }
 
-        public string Example
-        {
-            get { return _example; }
-            set
-            {
-                _example = value;
-                OnPropertyChanged(nameof(Example));
-            }
-        }
-
-        public string Result
-        {
-            get { return _result; }
-            set
-            {
-                _result = value;
-                OnPropertyChanged(nameof(Result));
-            }
-        }
         public string Addition()
         {
-            _firstOperandNum = Convert.ToInt32(_firstOperandStr);
-            _secondOperandNum = Convert.ToInt32(_secondOperandStr);
+            OperansToDouble();
             _calculator.Result = _firstOperandNum + _secondOperandNum;
             return _calculator.Result.ToString();
         }
         public string Subtraction()
         {
-            _firstOperandNum = Convert.ToInt32(_firstOperandStr);
-            _secondOperandNum = Convert.ToInt32(_secondOperandStr);
+            OperansToDouble();
             _calculator.Result = _firstOperandNum - _secondOperandNum;
             return _calculator.Result.ToString();
         }
         public string Division()
         {
-            _firstOperandNum = Convert.ToInt32(_firstOperandStr);
-            _secondOperandNum = Convert.ToInt32(_secondOperandStr);
+            OperansToDouble();
             _calculator.Result = _firstOperandNum / _secondOperandNum;
             return _calculator.Result.ToString();
         }
         public string Multiplication()
         {
-            _firstOperandNum = Convert.ToInt32(_firstOperandStr);
-            _secondOperandNum = Convert.ToInt32(_secondOperandStr);
+            OperansToDouble();
             _calculator.Result = _firstOperandNum * _secondOperandNum;
             return _calculator.Result.ToString();
         }

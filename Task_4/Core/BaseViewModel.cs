@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Task_4.Core
 {
-    public class NotifyPropertyChanged : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
