@@ -12,33 +12,39 @@ namespace Task_4.ViewModel
 {
     public class CalculatorViewModel : BaseViewModel
     {
-        private Calculator _calculator;
+        private readonly Calculator _calculator;
         private string _formula;
         private string _result;
         private string _reset;
         private string _firstOperandStr;
         private string _secondOperandStr;
         private string _signOfFormula;
+        private string _numberFromButton;
+        bool IsAddNewElement;
 
         private double _firstOperandNum;
         private double _secondOperandNum;
         private int _count;
 
-        public List<string> AllPartsOfFormula = new List<string>();
+        public List<string> AllPartsOfFormula = new();
 
 
-        public ICommand ShowFormula { get; set; }
+        public ICommand ShowNumbers { get; set; }
+        public ICommand ShowSign { get; set; }
         public ICommand ShowResult { get; set; }
         public ICommand ResetAll { get; set; }
 
         public CalculatorViewModel()
         {
             _calculator = new Calculator();
-            ShowFormula = new RelayCommand(CreateFormula);
+            ShowNumbers = new RelayCommand(CreateFormula);
+            ShowSign = new RelayCommand(CreateSing);
             ShowResult = new RelayCommand((parametr => CreateResult()));
             ResetAll = new RelayCommand((parametr => Reset()));
         }
-
+        //secondOpend is firstOperand when click = or sign
+        //Add to secondOperand new number 
+        // Add new sign
         public string ResetFormula
         {
             get { return _signOfFormula; }
@@ -80,46 +86,72 @@ namespace Task_4.ViewModel
             _signOfFormula = null;
             _firstOperandNum = 0;
             _secondOperandNum = 0;
+            _count = 0;
         }
-
+        public void CreateSing(object par)
+        {
+            _count++;
+            _numberFromButton = par.ToString();
+            AllPartsOfFormula.Add(_numberFromButton);
+            _signOfFormula = _numberFromButton;
+            Formula += _signOfFormula;
+        }
         public void CreateFormula(object par)
         {
-            string _numberFromButton = par.ToString();
-            bool IsAddNewElement = true;
-            if (IsAddNewElement == true && _count == 0)
+            _numberFromButton = par.ToString();
+            IsAddNewElement = true;
+            if (_count > 2 || Result != null)
+            {
+                _firstOperandStr = Result;
+                //CreateSecondOperand();
+            }
+            
+            if (_count <= 2)
+
+            {
+                CreateFirstOperand();
+                CreateSecondOperand();
+            }
+            CreateResult();
+        }
+
+        public void CreateFirstOperand()
+        {
+            if (_count == 0)
             {
                 _count++;
                 AllPartsOfFormula.Add(_numberFromButton);
+                _firstOperandStr = _numberFromButton;
+                Formula += _numberFromButton;
                 IsAddNewElement = false;
             }
-            if (IsElementTrue(_numberFromButton) && IsAddNewElement == true)
+            if (IsAddNewElement == true && _signOfFormula == null)
             {
-                //_firstOperandStr = ...
                 if (AllPartsOfFormula.Count > 0)
                     _firstOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
+                Formula += _numberFromButton;
                 IsAddNewElement = false;
             }
-            if (IsSignTrue(_numberFromButton))
-            {
-                //_signOfFormula = ...
-                AllPartsOfFormula.Add(_numberFromButton);
-                _signOfFormula = _numberFromButton;
-                IsAddNewElement = true;
-            }
-            if (_signOfFormula != null && IsAddNewElement == true)
+        }
+
+        public void CreateSecondOperand()
+        {
+            if (_signOfFormula != null && IsAddNewElement == true && _secondOperandStr == null)
             {
                 AllPartsOfFormula.Add(_numberFromButton);
+                _secondOperandStr = _numberFromButton;
+                Formula += _numberFromButton;
+                IsAddNewElement = false;
             }
-            if (IsElementTrue(_numberFromButton) && IsAddNewElement == true)
+            if (IsAddNewElement == true)
             {
-                //_secondOperandStr = ...
                 if (AllPartsOfFormula.Count > 0)
+                {
                     _secondOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
+                    Formula += _numberFromButton;
+                    IsAddNewElement = false;
+                }
             }
-
-
-            //AllPartsOfFormula.Add(_numberFromButton);
-            Formula += _numberFromButton;
         }
 
         public bool IsElementTrue(string element)
@@ -135,58 +167,21 @@ namespace Task_4.ViewModel
             else return false;
         }
 
-        //public void CreatePartsOfFormula()
-        //{
-        //    for (int i = 0; i < AllPartsOfFormula.Count; i++)
-        //    {
-        //        bool isContinue = true;
-        //        string elementOfMass = AllPartsOfFormula[i];
-
-        //        if (_signOfFormula != null)
-        //        {
-        //            if (IsElementTrue(elementOfMass))
-        //            {
-        //                _secondOperandStr += AllPartsOfFormula[i];
-        //            }
-        //        }
-
-        //        if (IsSignTrue(elementOfMass))
-        //        {
-        //            _signOfFormula = AllPartsOfFormula[i];
-        //        }
-
-        //        while (isContinue == true && _signOfFormula == null)
-        //        {
-        //            if (IsElementTrue(elementOfMass))
-        //            {
-        //                _firstOperandStr += AllPartsOfFormula[i];
-        //                isContinue = false;
-        //            }
-        //        }
-                //if (_signOfFormula != null && IsSignTrue(elementOfMass))
-                //{
-                //   _firstOperandNum = _calculator.Result;
-                //   _secondOperandStr =
-                //}
-        //    }
-        //}
-
         public void CreateResult()
         {
-            //CreatePartsOfFormula();
             switch (_signOfFormula)
             {
                 case "+":
-                    Result = "=" + Addition();
+                    Result =  Addition();
                     break;
                 case "-":
-                    Result = "=" + Subtraction();
+                    Result =  Subtraction();
                     break;
                 case "*":
-                    Result = "=" + Multiplication();
+                    Result = Multiplication();
                     break;
                 case "/":
-                    Result = "=" + Division();
+                    Result = Division();
                     break;
             }
         }
@@ -194,7 +189,7 @@ namespace Task_4.ViewModel
         public void OperansToDouble()
         {
             _firstOperandNum = Convert.ToDouble(_firstOperandStr);
-            _secondOperandNum = Convert.ToDouble(_secondOperandStr);
+              _secondOperandNum = Convert.ToDouble(_secondOperandStr);
         }
 
         public string Addition()

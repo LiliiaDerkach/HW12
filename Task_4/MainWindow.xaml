@@ -64,7 +64,7 @@
             Content="1"
             FontSize="50"
             Name="ButtonOne"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="1"/>
         <Button
             Grid.Row="2"
@@ -72,7 +72,7 @@
             Content="2"
             FontSize="50"
             Name="ButtonTwo"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="2"/>
         <Button
             Grid.Row="2"
@@ -80,7 +80,7 @@
             Content="3"
             FontSize="50"
             Name="ButtonThree"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="3"/>
         <Button
             Grid.Row="3"
@@ -88,7 +88,7 @@
             Content="4"
             FontSize="50"
             Name="ButtonFour"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="4"/>
         <Button
             Grid.Row="3"
@@ -96,7 +96,7 @@
             Content="5"
             FontSize="50"
             Name="ButtonFive"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="5"/>
         <Button
             Grid.Row="3"
@@ -104,7 +104,7 @@
             Content="6"
             FontSize="50"
             Name="ButtonSix"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="6"/>
         <Button
             Grid.Row="4"
@@ -112,7 +112,7 @@
             Content="7"
             FontSize="50"
             Name="ButtonSeven"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="7"/>
         <Button
             Grid.Row="4"
@@ -120,7 +120,7 @@
             Content="8"
             FontSize="50"
             Name="ButtonEight"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="8"/>
         <Button
             Grid.Row="4"
@@ -128,7 +128,7 @@
             Content="9"
             FontSize="50"
             Name="ButtonNine"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="9"/>
         <Button
             Grid.Row="5"
@@ -136,7 +136,7 @@
             Content="0"
             FontSize="50"
             Name="ButtonZero"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowNumbers}"
             CommandParameter="0"/>
         <Button
             Grid.Row="2"
@@ -144,7 +144,7 @@
             Content="+"
             FontSize="50"
             Name="ButtonPlus"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowSign}"
             CommandParameter="+"/>
         <Button
             Grid.Row="3"
@@ -152,15 +152,15 @@
             Content="-"
             FontSize="50"
             Name="ButtonMinus"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowSign}"
             CommandParameter="-"/>
         <Button
             Grid.Row="4"
             Grid.Column="3"
             Content="*"
             FontSize="50"
-            Name="ButtonMultiздн"
-            Command="{Binding ShowFormula}"
+            Name="ButtonMultiply"
+            Command="{Binding ShowSign}"
             CommandParameter="*"/>
         <Button
             Grid.Row="5"
@@ -168,7 +168,7 @@
             Content="/"
             FontSize="50"
             Name="ButtonDivide"
-            Command="{Binding ShowFormula}"
+            Command="{Binding ShowSign}"
             CommandParameter="/"/>
     </Grid>
 </Window>
