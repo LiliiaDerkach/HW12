@@ -92,11 +92,12 @@ namespace Task_4.ViewModel
                 AllPartsOfFormula.Add(_numberFromButton);
                 IsAddNewElement = false;
             }
-            if (IsElementTrue(_numberFromButton))
+            if (IsElementTrue(_numberFromButton) && IsAddNewElement == true)
             {
                 //_firstOperandStr = ...
                 if (AllPartsOfFormula.Count > 0)
                     _firstOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
+                IsAddNewElement = false;
             }
             if (IsSignTrue(_numberFromButton))
             {
@@ -109,7 +110,7 @@ namespace Task_4.ViewModel
             {
                 AllPartsOfFormula.Add(_numberFromButton);
             }
-            if (IsElementTrue(_numberFromButton))
+            if (IsElementTrue(_numberFromButton) && IsAddNewElement == true)
             {
                 //_secondOperandStr = ...
                 if (AllPartsOfFormula.Count > 0)
@@ -117,13 +118,13 @@ namespace Task_4.ViewModel
             }
 
 
-            AllPartsOfFormula.Add(_numberFromButton);
+            //AllPartsOfFormula.Add(_numberFromButton);
             Formula += _numberFromButton;
         }
 
         public bool IsElementTrue(string element)
         {
-            if (element != "+" || element != "-" || element != "*" || element != "/")
+            if (element != "+" && element != "-" && element != "*" && element != "/")
                 return true;
             else return false;
         }
