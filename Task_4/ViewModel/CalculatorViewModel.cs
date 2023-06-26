@@ -16,6 +16,7 @@ namespace Task_4.ViewModel
         private string _formula;
         private string _result;
         private string _reset;
+        private string _currentNumber;
         private string _firstOperandStr;
         private string _secondOperandStr;
         private string _signOfFormula;
@@ -33,6 +34,8 @@ namespace Task_4.ViewModel
         public ICommand ShowSign { get; set; }
         public ICommand ShowResult { get; set; }
         public ICommand ResetAll { get; set; }
+        //число введене зараз
+        //формула, яка виводиться коли я ввожу знак або дорівнює. Після натиску дорівнює а потім цифри формула починає створюватися заново
 
         public CalculatorViewModel()
         {
@@ -42,12 +45,10 @@ namespace Task_4.ViewModel
             ShowResult = new RelayCommand((parametr => CreateResult()));
             ResetAll = new RelayCommand((parametr => Reset()));
         }
-        //secondOpend is firstOperand when click = or sign
-        //Add to secondOperand new number 
-        // Add new sign
+
         public string ResetFormula
         {
-            get { return _signOfFormula; }
+            get { return _result; }
             set
             {
                 _reset = value;
@@ -74,7 +75,14 @@ namespace Task_4.ViewModel
                 OnPropertyChanged(nameof(Result));
             }
         }
-
+        public string CurrentNumber
+        {
+            get
+            {
+                return _currentNumber;
+            }
+            set { _currentNumber = value; OnPropertyChanged(nameof(CurrentNumber)); }
+        }
         public void Reset()
         {
             ResetFormula = null;
@@ -92,7 +100,6 @@ namespace Task_4.ViewModel
         {
             _count++;
             _numberFromButton = par.ToString();
-            AllPartsOfFormula.Add(_numberFromButton);
             _signOfFormula = _numberFromButton;
             Formula += _signOfFormula;
         }
@@ -103,15 +110,15 @@ namespace Task_4.ViewModel
             if (_count > 2 || Result != null)
             {
                 _firstOperandStr = Result;
-                //CreateSecondOperand();
+                _secondOperandStr = null;
             }
             
             if (_count <= 2)
 
             {
                 CreateFirstOperand();
-                CreateSecondOperand();
             }
+            CreateSecondOperand();
             CreateResult();
         }
 
@@ -156,7 +163,8 @@ namespace Task_4.ViewModel
 
         public bool IsElementTrue(string element)
         {
-            if (element != "+" && element != "-" && element != "*" && element != "/")
+            //if (element != "+" && element != "-" && element != "*" && element != "/")
+                if(element is Int32 || element is Double)
                 return true;
             else return false;
         }

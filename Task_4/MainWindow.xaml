@@ -30,7 +30,7 @@
             Text="{Binding Formula}"
             TextAlignment="Center"
             FontSize="50"
-            Background="Beige"/>
+            Background="LightGray"/>
         <TextBlock
             Grid.Column="0"
             Grid.ColumnSpan="4"
@@ -39,7 +39,7 @@
             Text="{Binding Result}"
             TextAlignment="Center"
             FontSize="50"
-            Background="Bisque"/>
+            Background="LightGray"/>
         <Button
             Grid.Row="5"
             Grid.Column="1"
