@@ -36,7 +36,7 @@
             Grid.ColumnSpan="4"
             Grid.Row="1"
             Name="ResultText"
-            Text="{Binding Result}"
+            Text="{Binding CurrentNumber}"
             TextAlignment="Center"
             FontSize="50"
             Background="LightGray"/>
@@ -46,8 +46,8 @@
             Name="ResultButton"
             Content="="
             FontSize="50"
-            Command="{Binding ShowResult}"
-            CommandParameter="Result"
+            Command="{Binding ShowSign}"
+            CommandParameter="="
             Background="GreenYellow"/>
         <Button
             Grid.Row="5"

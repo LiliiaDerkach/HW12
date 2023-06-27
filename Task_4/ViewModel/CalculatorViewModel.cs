@@ -21,7 +21,8 @@ namespace Task_4.ViewModel
         private string _secondOperandStr;
         private string _signOfFormula;
         private string _numberFromButton;
-        bool IsAddNewElement;
+        bool isAddNewElement;
+        bool isSingChange = false;
 
         private double _firstOperandNum;
         private double _secondOperandNum;
@@ -34,6 +35,7 @@ namespace Task_4.ViewModel
         public ICommand ShowSign { get; set; }
         public ICommand ShowResult { get; set; }
         public ICommand ResetAll { get; set; }
+        public ICommand ShowCurrentNumber { get; set; }
         //число введене зараз
         //формула, яка виводиться коли я ввожу знак або дорівнює. Після натиску дорівнює а потім цифри формула починає створюватися заново
 
@@ -88,6 +90,7 @@ namespace Task_4.ViewModel
             ResetFormula = null;
             Formula = null;
             Result = null;
+            CurrentNumber = null;
             AllPartsOfFormula = new List<string>();
             _firstOperandStr = null;
             _secondOperandStr = null;
@@ -99,20 +102,36 @@ namespace Task_4.ViewModel
         public void CreateSing(object par)
         {
             _count++;
-            _numberFromButton = par.ToString();
-            _signOfFormula = _numberFromButton;
+            _signOfFormula = par.ToString();
             Formula += _signOfFormula;
+
+            if (_count > 2)
+            {
+                isSingChange = true;
+            }
+            if (_signOfFormula is "=" || isSingChange is true)
+            {
+                CurrentNumber = Result;
+                isSingChange = false;
+            }
         }
         public void CreateFormula(object par)
         {
+            if(_signOfFormula is "=")
+                Formula = null;
+
             _numberFromButton = par.ToString();
-            IsAddNewElement = true;
+            CurrentNumber = _numberFromButton;
+            isAddNewElement = true;
             if (_count > 2 || Result != null)
             {
+                //Formula = null;
                 _firstOperandStr = Result;
+                //Formula += _firstOperandStr;
+                //Formula += _signOfFormula;
                 _secondOperandStr = null;
             }
-            
+
             if (_count <= 2)
 
             {
@@ -130,33 +149,33 @@ namespace Task_4.ViewModel
                 AllPartsOfFormula.Add(_numberFromButton);
                 _firstOperandStr = _numberFromButton;
                 Formula += _numberFromButton;
-                IsAddNewElement = false;
+                isAddNewElement = false;
             }
-            if (IsAddNewElement == true && _signOfFormula == null)
+            if (isAddNewElement == true && _signOfFormula == null)
             {
                 if (AllPartsOfFormula.Count > 0)
                     _firstOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
                 Formula += _numberFromButton;
-                IsAddNewElement = false;
+                isAddNewElement = false;
             }
         }
 
         public void CreateSecondOperand()
         {
-            if (_signOfFormula != null && IsAddNewElement == true && _secondOperandStr == null)
+            if (_signOfFormula != null && isAddNewElement == true && _secondOperandStr == null)
             {
                 AllPartsOfFormula.Add(_numberFromButton);
                 _secondOperandStr = _numberFromButton;
                 Formula += _numberFromButton;
-                IsAddNewElement = false;
+                isAddNewElement = false;
             }
-            if (IsAddNewElement == true)
+            if (isAddNewElement == true)
             {
                 if (AllPartsOfFormula.Count > 0)
                 {
                     _secondOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
                     Formula += _numberFromButton;
-                    IsAddNewElement = false;
+                    isAddNewElement = false;
                 }
             }
         }
@@ -164,7 +183,7 @@ namespace Task_4.ViewModel
         public bool IsElementTrue(string element)
         {
             //if (element != "+" && element != "-" && element != "*" && element != "/")
-                if(element is Int32 || element is Double)
+            if (element is Int32 || element is Double)
                 return true;
             else return false;
         }
@@ -180,10 +199,10 @@ namespace Task_4.ViewModel
             switch (_signOfFormula)
             {
                 case "+":
-                    Result =  Addition();
+                    Result = Addition();
                     break;
                 case "-":
-                    Result =  Subtraction();
+                    Result = Subtraction();
                     break;
                 case "*":
                     Result = Multiplication();
@@ -197,7 +216,7 @@ namespace Task_4.ViewModel
         public void OperansToDouble()
         {
             _firstOperandNum = Convert.ToDouble(_firstOperandStr);
-              _secondOperandNum = Convert.ToDouble(_secondOperandStr);
+            _secondOperandNum = Convert.ToDouble(_secondOperandStr);
         }
 
         public string Addition()
