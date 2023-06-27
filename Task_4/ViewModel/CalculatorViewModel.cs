@@ -35,9 +35,6 @@ namespace Task_4.ViewModel
         public ICommand ShowSign { get; set; }
         public ICommand ShowResult { get; set; }
         public ICommand ResetAll { get; set; }
-        public ICommand ShowCurrentNumber { get; set; }
-        //число введене зараз
-        //формула, яка виводиться коли я ввожу знак або дорівнює. Після натиску дорівнює а потім цифри формула починає створюватися заново
 
         public CalculatorViewModel()
         {
@@ -109,28 +106,28 @@ namespace Task_4.ViewModel
             {
                 isSingChange = true;
             }
-            if (_signOfFormula is "=" || isSingChange is true)
+            if (_signOfFormula is "=")
             {
                 CurrentNumber = Result;
                 isSingChange = false;
             }
+            if(isSingChange is true)
+            {
+                CurrentNumber = Result;
+                Formula = null;
+                _firstOperandStr = Result;
+                Formula += _firstOperandStr;
+                Formula += _signOfFormula;
+                _secondOperandStr = null;
+            }
         }
         public void CreateFormula(object par)
         {
-            if(_signOfFormula is "=")
-                Formula = null;
+            //if(_signOfFormula is "=")
 
             _numberFromButton = par.ToString();
             CurrentNumber = _numberFromButton;
             isAddNewElement = true;
-            if (_count > 2 || Result != null)
-            {
-                //Formula = null;
-                _firstOperandStr = Result;
-                //Formula += _firstOperandStr;
-                //Formula += _signOfFormula;
-                _secondOperandStr = null;
-            }
 
             if (_count <= 2)
 
@@ -182,7 +179,6 @@ namespace Task_4.ViewModel
 
         public bool IsElementTrue(string element)
         {
-            //if (element != "+" && element != "-" && element != "*" && element != "/")
             if (element is Int32 || element is Double)
                 return true;
             else return false;
