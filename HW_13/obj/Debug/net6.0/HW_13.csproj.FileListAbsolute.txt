@@ -1,0 +1,15 @@
+C:\Users\Lilia\source\repos\HW_13\HW_13\bin\Debug\net6.0\HW_13.exe
+C:\Users\Lilia\source\repos\HW_13\HW_13\bin\Debug\net6.0\HW_13.deps.json
+C:\Users\Lilia\source\repos\HW_13\HW_13\bin\Debug\net6.0\HW_13.runtimeconfig.json
+C:\Users\Lilia\source\repos\HW_13\HW_13\bin\Debug\net6.0\HW_13.dll
+C:\Users\Lilia\source\repos\HW_13\HW_13\bin\Debug\net6.0\HW_13.pdb
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.csproj.AssemblyReference.cache
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.AssemblyInfoInputs.cache
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.AssemblyInfo.cs
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.csproj.CoreCompileInputs.cache
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.dll
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\refint\HW_13.dll
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.pdb
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\HW_13.genruntimeconfig.cache
+C:\Users\Lilia\source\repos\HW_13\HW_13\obj\Debug\net6.0\ref\HW_13.dll
