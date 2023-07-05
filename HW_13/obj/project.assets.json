@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lilia\\source\\repos\\HW_13\\HW_13\\HW_13.csproj",
+      "projectUniqueName": "C:\\Users\\Lilia\\source\\repos\\HW12\\HW_13\\HW_13.csproj",
       "projectName": "HW_13",
-      "projectPath": "C:\\Users\\Lilia\\source\\repos\\HW_13\\HW_13\\HW_13.csproj",
+      "projectPath": "C:\\Users\\Lilia\\source\\repos\\HW12\\HW_13\\HW_13.csproj",
       "packagesPath": "C:\\Users\\Lilia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lilia\\source\\repos\\HW_13\\HW_13\\obj\\",
+      "outputPath": "C:\\Users\\Lilia\\source\\repos\\HW12\\HW_13\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lilia\\AppData\\Roaming\\NuGet\\NuGet.Config",

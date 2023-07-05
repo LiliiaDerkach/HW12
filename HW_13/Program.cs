@@ -20,11 +20,13 @@ namespace HW_13
             lengthOfLine = random.Next(0, 10);
             string line = null;
 
-            //for (int i = 0; i < lengthOfLine; i++)
+            //for (int i = 0; i < heightOfWindow; i++)
             //{
+            //Console.Clear();
             //    Console.SetCursorPosition(numberOfLine, i);
             //    Console.ForegroundColor = ConsoleColor.DarkGreen;
             //    if (i == lengthOfLine - 1)
+
             //        Console.ForegroundColor = ConsoleColor.White;
             //    if (i == lengthOfLine - 2)
             //        Console.ForegroundColor = ConsoleColor.Yellow;
@@ -32,12 +34,22 @@ namespace HW_13
             //    Console.WriteLine(line);
             //    Thread.Sleep(1000);
             //}
+
             for (int i = 0; i < heightOfWindow; i++)
             {
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.White;
                 Console.SetCursorPosition(numberOfLine, i);
-                Console.WriteLine("o");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(letters[random.Next(letters.Length)]);
+                Console.SetCursorPosition(numberOfLine, i+1);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(letters[random.Next(letters.Length)]);
+                Console.SetCursorPosition(numberOfLine, i + 2);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(letters[random.Next(letters.Length)]);
+                Console.SetCursorPosition(numberOfLine, i + 3);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine(letters[random.Next(letters.Length)]);
                 Thread.Sleep(1000);
             }
             //}
