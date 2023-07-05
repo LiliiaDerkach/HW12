@@ -25,12 +25,12 @@
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Grid.Row="0"
-
             Name="ExampleText"
             Text="{Binding Formula}"
             TextAlignment="Center"
             FontSize="50"
-            Background="LightGray"/>
+            Background="WhiteSmoke"
+            Foreground="Gray"/>
         <TextBlock
             Grid.Column="0"
             Grid.ColumnSpan="4"
@@ -39,7 +39,7 @@
             Text="{Binding CurrentNumber}"
             TextAlignment="Center"
             FontSize="50"
-            Background="LightGray"/>
+            Background="WhiteSmoke"/>
         <Button
             Grid.Row="5"
             Grid.Column="1"
@@ -48,7 +48,7 @@
             FontSize="50"
             Command="{Binding ShowSign}"
             CommandParameter="="
-            Background="GreenYellow"/>
+            Background="WhiteSmoke"/>
         <Button
             Grid.Row="5"
             Grid.Column="2"
@@ -57,7 +57,7 @@
             FontSize="50"
             Command="{Binding ResetAll}"
             CommandParameter="Result"
-            Background="RosyBrown"/>
+            Background="WhiteSmoke"/>
         <Button
             Grid.Row="2"
             Grid.Column="0"
@@ -65,7 +65,8 @@
             FontSize="50"
             Name="ButtonOne"
             Command="{Binding ShowNumbers}"
-            CommandParameter="1"/>
+            CommandParameter="1"
+            Background="White"/>
         <Button
             Grid.Row="2"
             Grid.Column="1"
@@ -73,7 +74,8 @@
             FontSize="50"
             Name="ButtonTwo"
             Command="{Binding ShowNumbers}"
-            CommandParameter="2"/>
+            CommandParameter="2"
+            Background="White"/>
         <Button
             Grid.Row="2"
             Grid.Column="2"
@@ -81,7 +83,8 @@
             FontSize="50"
             Name="ButtonThree"
             Command="{Binding ShowNumbers}"
-            CommandParameter="3"/>
+            CommandParameter="3"
+            Background="White"/>
         <Button
             Grid.Row="3"
             Grid.Column="0"
@@ -89,7 +92,8 @@
             FontSize="50"
             Name="ButtonFour"
             Command="{Binding ShowNumbers}"
-            CommandParameter="4"/>
+            CommandParameter="4"
+            Background="White"/>
         <Button
             Grid.Row="3"
             Grid.Column="1"
@@ -97,7 +101,8 @@
             FontSize="50"
             Name="ButtonFive"
             Command="{Binding ShowNumbers}"
-            CommandParameter="5"/>
+            CommandParameter="5"
+            Background="White"/>
         <Button
             Grid.Row="3"
             Grid.Column="2"
@@ -105,7 +110,8 @@
             FontSize="50"
             Name="ButtonSix"
             Command="{Binding ShowNumbers}"
-            CommandParameter="6"/>
+            CommandParameter="6"
+            Background="White"/>
         <Button
             Grid.Row="4"
             Grid.Column="0"
@@ -113,7 +119,8 @@
             FontSize="50"
             Name="ButtonSeven"
             Command="{Binding ShowNumbers}"
-            CommandParameter="7"/>
+            CommandParameter="7"
+            Background="White"/>
         <Button
             Grid.Row="4"
             Grid.Column="1"
@@ -121,7 +128,8 @@
             FontSize="50"
             Name="ButtonEight"
             Command="{Binding ShowNumbers}"
-            CommandParameter="8"/>
+            CommandParameter="8"
+            Background="White"/>
         <Button
             Grid.Row="4"
             Grid.Column="2"
@@ -129,7 +137,8 @@
             FontSize="50"
             Name="ButtonNine"
             Command="{Binding ShowNumbers}"
-            CommandParameter="9"/>
+            CommandParameter="9"
+            Background="White"/>
         <Button
             Grid.Row="5"
             Grid.Column="0"
@@ -137,7 +146,8 @@
             FontSize="50"
             Name="ButtonZero"
             Command="{Binding ShowNumbers}"
-            CommandParameter="0"/>
+            CommandParameter="0"
+            Background="White"/>
         <Button
             Grid.Row="2"
             Grid.Column="3"
@@ -145,7 +155,8 @@
             FontSize="50"
             Name="ButtonPlus"
             Command="{Binding ShowSign}"
-            CommandParameter="+"/>
+            CommandParameter="+"
+            Background="WhiteSmoke"/>
         <Button
             Grid.Row="3"
             Grid.Column="3"
@@ -153,7 +164,8 @@
             FontSize="50"
             Name="ButtonMinus"
             Command="{Binding ShowSign}"
-            CommandParameter="-"/>
+            CommandParameter="-"
+            Background="WhiteSmoke"/>
         <Button
             Grid.Row="4"
             Grid.Column="3"
@@ -161,7 +173,8 @@
             FontSize="50"
             Name="ButtonMultiply"
             Command="{Binding ShowSign}"
-            CommandParameter="*"/>
+            CommandParameter="*"
+            Background="WhiteSmoke"/>
         <Button
             Grid.Row="5"
             Grid.Column="3"
@@ -169,6 +182,7 @@
             FontSize="50"
             Name="ButtonDivide"
             Command="{Binding ShowSign}"
-            CommandParameter="/"/>
+            CommandParameter="/"
+            Background="WhiteSmoke"/>
     </Grid>
 </Window>
