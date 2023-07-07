@@ -15,20 +15,17 @@ namespace Task_4.ViewModel
         private readonly Calculator _calculator;
         private string _formula;
         private string _result;
-        private string _reset;
         private string _currentNumber;
         private string _firstOperandStr;
         private string _secondOperandStr;
         private string _signOfFormula;
         private string _numberFromButton;
-        bool isAddNewElement;
+        bool canAddNewElement;
         bool isSingChange = false;
 
         private double _firstOperandNum;
         private double _secondOperandNum;
         private int _count;
-
-        public List<string> AllPartsOfFormula = new();
 
 
         public ICommand ShowNumbers { get; set; }
@@ -39,20 +36,10 @@ namespace Task_4.ViewModel
         public CalculatorViewModel()
         {
             _calculator = new Calculator();
-            ShowNumbers = new RelayCommand(CreateFormula);
-            ShowSign = new RelayCommand(CreateSing);
-            ShowResult = new RelayCommand((parametr => CreateResult()));
-            ResetAll = new RelayCommand((parametr => Reset()));
-        }
-
-        public string ResetFormula
-        {
-            get { return _result; }
-            set
-            {
-                _reset = value;
-                OnPropertyChanged(nameof(ResetFormula));
-            }
+            ShowNumbers = new RelayCommand<string>(CreateFormula);
+            ShowSign = new RelayCommand<string>(CreateSing);
+            ShowResult = new RelayCommand(CreateResult);
+            ResetAll = new RelayCommand(Reset);
         }
 
         public string Formula
@@ -74,6 +61,7 @@ namespace Task_4.ViewModel
                 OnPropertyChanged(nameof(Result));
             }
         }
+
         public string CurrentNumber
         {
             get
@@ -82,13 +70,12 @@ namespace Task_4.ViewModel
             }
             set { _currentNumber = value; OnPropertyChanged(nameof(CurrentNumber)); }
         }
+
         public void Reset()
         {
-            ResetFormula = null;
             Formula = null;
             Result = null;
             CurrentNumber = null;
-            AllPartsOfFormula = new List<string>();
             _firstOperandStr = null;
             _secondOperandStr = null;
             _signOfFormula = null;
@@ -96,45 +83,44 @@ namespace Task_4.ViewModel
             _secondOperandNum = 0;
             _count = 0;
         }
-        public void CreateSing(object par)
+        public void CreateSing(string par)
         {
             _count++;
-            _signOfFormula = par.ToString();
+            _signOfFormula = par;
             Formula += _signOfFormula;
 
             if (_count > 2)
-            {
                 isSingChange = true;
-            }
+
+
             if (_signOfFormula is "=")
             {
                 CurrentNumber = Result;
                 isSingChange = false;
             }
-            if(isSingChange is true)
+
+            if (isSingChange is true)
             {
                 CurrentNumber = Result;
                 Formula = null;
                 _firstOperandStr = Result;
-                Formula += _firstOperandStr;
+                Formula += _firstOperandNum;
                 Formula += _signOfFormula;
                 _secondOperandStr = null;
             }
         }
-        public void CreateFormula(object par)
+        public void CreateFormula(string par)
         {
-            //if(_signOfFormula is "=")
-
-            _numberFromButton = par.ToString();
-            CurrentNumber = _numberFromButton;
-            isAddNewElement = true;
+            _numberFromButton = par;
+            canAddNewElement = true;
 
             if (_count <= 2)
-
-            {
                 CreateFirstOperand();
-            }
-            CreateSecondOperand();
+
+
+            if (_signOfFormula != null && canAddNewElement == true)
+                CreateSecondOperand();
+
             CreateResult();
         }
 
@@ -143,51 +129,36 @@ namespace Task_4.ViewModel
             if (_count == 0)
             {
                 _count++;
-                AllPartsOfFormula.Add(_numberFromButton);
-                _firstOperandStr = _numberFromButton;
+                _firstOperandStr += _numberFromButton;
                 Formula += _numberFromButton;
-                isAddNewElement = false;
+                canAddNewElement = false;
             }
-            if (isAddNewElement == true && _signOfFormula == null)
+
+            if (canAddNewElement == true && _signOfFormula == null)
             {
-                if (AllPartsOfFormula.Count > 0)
-                    _firstOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
+                _firstOperandStr += _numberFromButton;
                 Formula += _numberFromButton;
-                isAddNewElement = false;
+                canAddNewElement = false;
             }
+            CurrentNumber = _firstOperandStr;
         }
 
         public void CreateSecondOperand()
         {
-            if (_signOfFormula != null && isAddNewElement == true && _secondOperandStr == null)
+            if (_secondOperandStr == null)
             {
-                AllPartsOfFormula.Add(_numberFromButton);
-                _secondOperandStr = _numberFromButton;
+                _secondOperandStr += _numberFromButton;
                 Formula += _numberFromButton;
-                isAddNewElement = false;
+                canAddNewElement = false;
             }
-            if (isAddNewElement == true)
-            {
-                if (AllPartsOfFormula.Count > 0)
-                {
-                    _secondOperandStr = AllPartsOfFormula[AllPartsOfFormula.Count - 1] += _numberFromButton;
-                    Formula += _numberFromButton;
-                    isAddNewElement = false;
-                }
-            }
-        }
 
-        public bool IsElementTrue(string element)
-        {
-            if (element is Int32 || element is Double)
-                return true;
-            else return false;
-        }
-        public bool IsSignTrue(string sign)
-        {
-            if (sign == "+" || sign == "-" || sign == "*" || sign == "/")
-                return true;
-            else return false;
+            if (canAddNewElement == true)
+            {
+                _secondOperandStr += _numberFromButton;
+                Formula += _numberFromButton;
+                canAddNewElement = false;
+            }
+            CurrentNumber = _secondOperandStr;
         }
 
         public void CreateResult()
