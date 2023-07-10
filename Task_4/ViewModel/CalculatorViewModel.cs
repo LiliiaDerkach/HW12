@@ -13,20 +13,26 @@ namespace Task_4.ViewModel
     public class CalculatorViewModel : BaseViewModel
     {
         private readonly Calculator _calculator;
+
         private string _formula;
         private string _result;
         private string _currentNumber;
+
         private string _firstOperandStr;
         private string _secondOperandStr;
         private string _signOfFormula;
         private string _numberFromButton;
+
+        private List<string> _signsList;
+
         bool canAddNewElement;
         bool isSingChange = false;
+        bool canAddFirstOperand = true;
+        bool canDoResult = false;
+        bool canSignAdd = true;
 
         private double _firstOperandNum;
         private double _secondOperandNum;
-        private int _count;
-
 
         public ICommand ShowNumbers { get; set; }
         public ICommand ShowSign { get; set; }
@@ -40,34 +46,25 @@ namespace Task_4.ViewModel
             ShowSign = new RelayCommand<string>(CreateSing);
             ShowResult = new RelayCommand(CreateResult);
             ResetAll = new RelayCommand(Reset);
+            _signsList = new List<string>();
         }
 
         public string Formula
         {
-            get { return _formula; }
-            set
-            {
-                _formula = value;
-                OnPropertyChanged(nameof(Formula));
-            }
+            get => _formula;
+            set { _formula = value; OnPropertyChanged(nameof(Formula)); }
         }
 
         public string Result
         {
-            get { return _result; }
-            set
-            {
-                _result = value;
-                OnPropertyChanged(nameof(Result));
-            }
+            get => _result;
+            set { _result = value; OnPropertyChanged(nameof(Result)); }
         }
 
         public string CurrentNumber
         {
-            get
-            {
-                return _currentNumber;
-            }
+            get => _currentNumber;
+
             set { _currentNumber = value; OnPropertyChanged(nameof(CurrentNumber)); }
         }
 
@@ -81,15 +78,24 @@ namespace Task_4.ViewModel
             _signOfFormula = null;
             _firstOperandNum = 0;
             _secondOperandNum = 0;
-            _count = 0;
+            canAddFirstOperand = true;
+            isSingChange = false;
+            canDoResult = false;
+            _signsList = new List<string>();
         }
         public void CreateSing(string par)
         {
-            _count++;
             _signOfFormula = par;
-            Formula += _signOfFormula;
+            _signsList.Add(_signOfFormula);
 
-            if (_count > 2)
+            if (_firstOperandStr != null && _signOfFormula != "=" && canSignAdd)
+            {
+                Formula += _signOfFormula;
+                canAddFirstOperand = false;
+                canSignAdd = false;
+            }
+
+            if (_signsList.Count >= 2)
                 isSingChange = true;
 
 
@@ -99,71 +105,70 @@ namespace Task_4.ViewModel
                 isSingChange = false;
             }
 
-            if (isSingChange is true)
+            if (_secondOperandStr != null)
+            {
+                canDoResult = true;
+                CreateResult();
+                CurrentNumber = Result;
+            }
+
+            if (isSingChange && _secondOperandStr != null)
             {
                 CurrentNumber = Result;
                 Formula = null;
                 _firstOperandStr = Result;
-                Formula += _firstOperandNum;
+                Formula += _firstOperandStr;
                 Formula += _signOfFormula;
                 _secondOperandStr = null;
+                canDoResult = false;
             }
+
+
         }
         public void CreateFormula(string par)
         {
+            if (_signOfFormula == "=") Formula = null;
             _numberFromButton = par;
             canAddNewElement = true;
 
-            if (_count <= 2)
+            if (canAddFirstOperand)
                 CreateFirstOperand();
 
 
-            if (_signOfFormula != null && canAddNewElement == true)
+            if (canAddNewElement)
                 CreateSecondOperand();
 
-            CreateResult();
+            if (canDoResult)
+                CreateResult();
         }
 
         public void CreateFirstOperand()
         {
-            if (_count == 0)
+            if (_signOfFormula != null && _signOfFormula == "-")
             {
-                _count++;
-                _firstOperandStr += _numberFromButton;
-                Formula += _numberFromButton;
-                canAddNewElement = false;
+                _firstOperandStr += _signOfFormula;
+                _signsList.Remove(_signOfFormula);
+                _signOfFormula = null;
             }
-
-            if (canAddNewElement == true && _signOfFormula == null)
-            {
-                _firstOperandStr += _numberFromButton;
-                Formula += _numberFromButton;
-                canAddNewElement = false;
-            }
+            _firstOperandStr += _numberFromButton;
+            canAddNewElement = false;
             CurrentNumber = _firstOperandStr;
+            canSignAdd = true;
+            Formula = _firstOperandStr;
+
         }
 
         public void CreateSecondOperand()
         {
-            if (_secondOperandStr == null)
-            {
-                _secondOperandStr += _numberFromButton;
-                Formula += _numberFromButton;
-                canAddNewElement = false;
-            }
-
-            if (canAddNewElement == true)
-            {
-                _secondOperandStr += _numberFromButton;
-                Formula += _numberFromButton;
-                canAddNewElement = false;
-            }
+            _secondOperandStr += _numberFromButton;
+            Formula += _numberFromButton;
             CurrentNumber = _secondOperandStr;
+            canSignAdd = true;
         }
 
         public void CreateResult()
         {
-            switch (_signOfFormula)
+            switch (_signsList[_signsList.Count - 2])
             {
                 case "+":
                     Result = Addition();
