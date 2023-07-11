@@ -9,85 +9,82 @@ namespace HW_13
 
         static void Stroka()
         {
-            //lock (locker)
-            //{
+
             Random random = new Random();
             string letters = "abcdefghigklmnopqrstuvwxyz";
-            int lengthOfLine = 0;
             int widthOfWindow = Console.WindowWidth;
             int heightOfWindow = Console.WindowHeight;
             int numberOfColoumn = random.Next(0, widthOfWindow);
-            lengthOfLine = random.Next(0, 10);
-            string line = null;
-            int numberOfLine = 0;
-
-            //for (int i = 0; i < lengthOfLine; i++)
-            //{
-            //    line += letters[random.Next(letters.Length)].ToString();
-            //    Console.WriteLine(line);
-            //    Thread.Sleep(1000);
-            //}
-            for (int i = 0; i < heightOfWindow; i++)
+            int lengthOfLine = random.Next(10, 20);
+            string line;
+            int numberOfLine;
+            int counter = 0;
+            object locker = new object();
+            lock (locker)
             {
-                Console.Clear();
-                if (i < lengthOfLine)
+                for (int i = 0; i < heightOfWindow; i++)
                 {
+
+                    Console.Clear();
                     line = null;
-                    for (int a = 0; a < i; a++)
+                    if (i < lengthOfLine)
                     {
-                        Console.SetCursorPosition(numberOfColoumn, a);
-                        line += letters[random.Next(letters.Length)].ToString();
-                        Console.WriteLine(line);
-                        Thread.Sleep(500);
-                    }
-                }
-                if (i >= lengthOfLine)
-                {
-                    line = null;
-                    for (int a = 0; a < lengthOfLine; a++)
-                    {
-                        if (numberOfLine < heightOfWindow)
+                        for (int a = 0; a <= i; a++)
                         {
-                            Console.SetCursorPosition(numberOfColoumn, numberOfLine);
-                            numberOfLine += 1;
-                            line += letters[random.Next(letters.Length)].ToString();
+                            if (a == i)
+                                Console.ForegroundColor = ConsoleColor.White;
+                            else if (a == i - 1)
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                            else
+                                Console.ForegroundColor = ConsoleColor.Green;
+                            Console.SetCursorPosition(numberOfColoumn, a);
+                            line = letters[random.Next(letters.Length)].ToString();
                             Console.WriteLine(line);
-                            Thread.Sleep(500);
+                            Thread.Sleep(10);
+                        }
+                    }
+
+                    if (i >= lengthOfLine)
+                    {
+
+                        numberOfLine = counter;
+                        counter += 1;
+                        line = null;
+                        for (int a = 0; a <= lengthOfLine; a++)
+                        {
+                            if (numberOfLine < heightOfWindow)
+                            {
+
+                                if (a == lengthOfLine)
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                else if (a == lengthOfLine - 1)
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                else
+                                    Console.ForegroundColor = ConsoleColor.Green;
+
+                                Console.SetCursorPosition(numberOfColoumn, numberOfLine);
+                                line = letters[random.Next(letters.Length)].ToString();
+                                Console.WriteLine(line);
+                                Thread.Sleep(10);
+                                numberOfLine += 1;
+                            }
                         }
                     }
                 }
 
+            
             }
-
-            //for (int i = 0; i < heightOfWindow; i++)
-            //{
-            //    Console.Clear();
-            //    Console.SetCursorPosition(numberOfColoumn, i);
-            //    Console.ForegroundColor = ConsoleColor.Green;
-            //    Console.WriteLine(letters[random.Next(letters.Length)]);
-            //    Console.SetCursorPosition(numberOfColoumn, i + 1);
-            //    Console.ForegroundColor = ConsoleColor.White;
-            //    Console.WriteLine(letters[random.Next(letters.Length)]);
-            //    Console.SetCursorPosition(numberOfColoumn, i + 2);
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine(letters[random.Next(letters.Length)]);
-            //    Console.SetCursorPosition(numberOfColoumn, i + 3);
-            //    Console.ForegroundColor = ConsoleColor.Blue;
-            //    Console.WriteLine(letters[random.Next(letters.Length)]);
-            //    Thread.Sleep(1000);
-            //}
-            //}
+            Console.Clear();
         }
+
+
         static void Main(string[] args)
         {
-            Thread line1 = new Thread(Stroka);
-            Thread line2 = new Thread(Stroka);
-            Thread line3 = new Thread(Stroka);
-            line1.Start();
-            //line2.Start();
-            //line3.Start();
-
-            Console.ReadKey();
+            for (int i = 0; i < 3; i++)
+            {
+                new Thread(Stroka).Start();
+            }
+            Console.ReadLine();
         }
     }
 }
