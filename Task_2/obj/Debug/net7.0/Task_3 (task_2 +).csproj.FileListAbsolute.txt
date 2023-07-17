@@ -1,0 +1,15 @@
+C:\Users\Lilia\source\repos\HW12\Task_2\bin\Debug\net7.0\Task_3 (task_2 +).exe
+C:\Users\Lilia\source\repos\HW12\Task_2\bin\Debug\net7.0\Task_3 (task_2 +).deps.json
+C:\Users\Lilia\source\repos\HW12\Task_2\bin\Debug\net7.0\Task_3 (task_2 +).runtimeconfig.json
+C:\Users\Lilia\source\repos\HW12\Task_2\bin\Debug\net7.0\Task_3 (task_2 +).dll
+C:\Users\Lilia\source\repos\HW12\Task_2\bin\Debug\net7.0\Task_3 (task_2 +).pdb
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).csproj.AssemblyReference.cache
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).AssemblyInfoInputs.cache
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).AssemblyInfo.cs
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).csproj.CoreCompileInputs.cache
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).dll
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\refint\Task_3 (task_2 +).dll
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).pdb
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\Task_3 (task_2 +).genruntimeconfig.cache
+C:\Users\Lilia\source\repos\HW12\Task_2\obj\Debug\net7.0\ref\Task_3 (task_2 +).dll

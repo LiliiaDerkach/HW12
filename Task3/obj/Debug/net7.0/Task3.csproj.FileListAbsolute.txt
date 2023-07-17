@@ -1,0 +1,15 @@
+C:\Users\Lilia\source\repos\HW12\Task3\bin\Debug\net7.0\Task3.exe
+C:\Users\Lilia\source\repos\HW12\Task3\bin\Debug\net7.0\Task3.deps.json
+C:\Users\Lilia\source\repos\HW12\Task3\bin\Debug\net7.0\Task3.runtimeconfig.json
+C:\Users\Lilia\source\repos\HW12\Task3\bin\Debug\net7.0\Task3.dll
+C:\Users\Lilia\source\repos\HW12\Task3\bin\Debug\net7.0\Task3.pdb
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.csproj.AssemblyReference.cache
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.AssemblyInfoInputs.cache
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.AssemblyInfo.cs
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.csproj.CoreCompileInputs.cache
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.dll
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\refint\Task3.dll
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.pdb
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\Task3.genruntimeconfig.cache
+C:\Users\Lilia\source\repos\HW12\Task3\obj\Debug\net7.0\ref\Task3.dll

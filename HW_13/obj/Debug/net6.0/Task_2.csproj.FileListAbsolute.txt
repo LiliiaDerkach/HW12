@@ -1,0 +1,15 @@
+C:\Users\Lilia\source\repos\HW12\HW_13\bin\Debug\net6.0\Task_2.exe
+C:\Users\Lilia\source\repos\HW12\HW_13\bin\Debug\net6.0\Task_2.deps.json
+C:\Users\Lilia\source\repos\HW12\HW_13\bin\Debug\net6.0\Task_2.runtimeconfig.json
+C:\Users\Lilia\source\repos\HW12\HW_13\bin\Debug\net6.0\Task_2.dll
+C:\Users\Lilia\source\repos\HW12\HW_13\bin\Debug\net6.0\Task_2.pdb
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.csproj.AssemblyReference.cache
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.AssemblyInfoInputs.cache
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.AssemblyInfo.cs
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.csproj.CoreCompileInputs.cache
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.dll
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\refint\Task_2.dll
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.pdb
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\Task_2.genruntimeconfig.cache
+C:\Users\Lilia\source\repos\HW12\HW_13\obj\Debug\net6.0\ref\Task_2.dll

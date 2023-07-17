@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lilia\\source\\repos\\HW12\\Task_2\\Task_2.csproj": {}
+    "C:\\Users\\Lilia\\source\\repos\\HW12\\HW_13\\Task_2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lilia\\source\\repos\\HW12\\Task_2\\Task_2.csproj": {
+    "C:\\Users\\Lilia\\source\\repos\\HW12\\HW_13\\Task_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lilia\\source\\repos\\HW12\\Task_2\\Task_2.csproj",
-        "projectName": "Task_2",
-        "projectPath": "C:\\Users\\Lilia\\source\\repos\\HW12\\Task_2\\Task_2.csproj",
+        "projectUniqueName": "C:\\Users\\Lilia\\source\\repos\\HW12\\HW_13\\Task_2.csproj",
+        "projectName": "Task_3 (task_2 +)",
+        "projectPath": "C:\\Users\\Lilia\\source\\repos\\HW12\\HW_13\\Task_2.csproj",
         "packagesPath": "C:\\Users\\Lilia\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Lilia\\source\\repos\\HW12\\Task_2\\obj\\",
         "projectStyle": "PackageReference",

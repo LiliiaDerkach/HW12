@@ -1,0 +1,15 @@
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\bin\Debug\net7.0\ThreadsMatrix.exe
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\bin\Debug\net7.0\ThreadsMatrix.deps.json
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\bin\Debug\net7.0\ThreadsMatrix.runtimeconfig.json
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\bin\Debug\net7.0\ThreadsMatrix.dll
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\bin\Debug\net7.0\ThreadsMatrix.pdb
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.csproj.AssemblyReference.cache
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.AssemblyInfoInputs.cache
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.AssemblyInfo.cs
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.csproj.CoreCompileInputs.cache
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.dll
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\refint\ThreadsMatrix.dll
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.pdb
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ThreadsMatrix.genruntimeconfig.cache
+C:\Users\Lilia\source\repos\HW12\ThreadsMatrix\obj\Debug\net7.0\ref\ThreadsMatrix.dll

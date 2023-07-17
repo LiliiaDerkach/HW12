@@ -40,7 +40,7 @@ namespace HW_13
                             Console.SetCursorPosition(numberOfColoumn, a);
                             line = letters[random.Next(letters.Length)].ToString();
                             Console.WriteLine(line);
-                            Thread.Sleep(10);
+                            Thread.Sleep(100);
                         }
                     }
 
@@ -65,14 +65,12 @@ namespace HW_13
                                 Console.SetCursorPosition(numberOfColoumn, numberOfLine);
                                 line = letters[random.Next(letters.Length)].ToString();
                                 Console.WriteLine(line);
-                                Thread.Sleep(10);
+                                Thread.Sleep(100);
                                 numberOfLine += 1;
                             }
                         }
                     }
                 }
-
-            
             }
             Console.Clear();
         }
@@ -80,6 +78,7 @@ namespace HW_13
 
         static void Main(string[] args)
         {
+            Console.SetWindowSize(80, 40);
             for (int i = 0; i < 3; i++)
             {
                 new Thread(Stroka).Start();
